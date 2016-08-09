@@ -36,25 +36,28 @@ with open("kep.txt","rt+", encoding="utf-8") as f:
         
 #print(kep)
 
+
+#A javitashoz egy ki segitseg.
 """
-A javitashoz egy ki segitseg.
 with open('sem.txt', 'wt', encoding='utf-8') as g:
     for k, a in kep.items():
         g.write("{0}:{1} \n".format(k,a))
-
 """
+
 print("2. feladat")
 """Be kell kerni egy RGB--kodot es meg kell vizsgalni hogy benne van-e a szotarban. """
 r = int(input("Kerem adjon be a RGB kod voros \R\ osszetevojet."))
 g = int(input("Kerem adjon be a RGB kod zold \G\ osszetevojet."))
 b = int(input("Kerem adjon be a RGB kod kek \B\ osszetevojet."))
+megtalal = False
 for a in kep.values():
-    if a['R'] == r and a['G'] == g and a['B'] == b:
-        print("Megtalalhato ez a szin a kepen.")
+    if r == a["R"] and  g == a['G'] and b == a['B']:
+        megtalal = True
         break
-    else:
-        print("Sajnos nincsen ilyen szin a kepen.")
-        break
+if megtalal == False:
+    print("Sajnos nincsen ilyen szin a kepen.")
+else:
+    print("Megtalalhato ez a szin a kepen.")
 
 print("3. feladat")
 """Meg kell hatarozni hogy a 35 sor 8 keppont szine hanyszor szerepel a 35--odik sorben es a 8 oszlopba."""
@@ -65,11 +68,11 @@ kep_RGB = []
 for k in kep.values():
     if k['sor'] == 35 and k['oszlop'] == 8:
         kep_RGB = k['Egesz']
-
-    if k['sor'] == 35 and k["Egesz"] == kep_RGB:
+for ke in kep.values():
+    if ke['sor'] == 35 and ke["Egesz"] == kep_RGB:
         szam_sor+=1
 
-    if k['oszlop'] == 8 and k["Egesz"] == kep_RGB:
+    if ke['oszlop'] == 8 and ke["Egesz"] == kep_RGB:
         szam_oszlop+=1
 
 print("Sorban: {0} Oszlopban: {1}".format(szam_sor, szam_oszlop))
