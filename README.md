@@ -1,0 +1,2 @@
+# 2012.oktober.19_Emelt_szintu_Informatika_erettsegi
+Megoldas Python programozasi nyelven
